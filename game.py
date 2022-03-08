@@ -8,20 +8,9 @@ from gestures import Gestures
 
 class Game():
     def __init__(self):
-        #self.win_loss_table = [['draw','p1','p2','p2','p1'],['p2','draw','p1','p1','p2'],['p1','p2','draw','p2','p1'],['p1','p2','p1','draw','p2'],['p2','p1','p2','p1','draw']]
         self.player1 = None
         self.player2 = None
-        # self.rock = Gesture('rock',['paper','spock'])
-        # self.paper = Gesture('paper',['scissors','lizard'])
-        # self.scissor = Gesture('scissors',['rock','scissors'])
-        # self.lizard = Gesture('lizard',['rock','scissors'])
-        # self.spock = Gesture('spock', ['paper','lizard'])
-        # self.gestures = (self.rock,self.paper,self.scissor,self.lizard,self.spock)
-        # self.gestures_obj = Gestures()
-        # self.gestures_obj.gestures_list.extend(self.gestures)
-        # self.player = Player()
-        # self.player.gestures = self.gestures_obj.gestures_list
-
+ 
     def run_game(self):
         self.display_welcome()
         time.sleep(1)
