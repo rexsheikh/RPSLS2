@@ -6,7 +6,7 @@ class Player ():
         self.score = 0
         self.rock = Gesture('rock',['paper','spock'])
         self.paper = Gesture('paper',['scissors','lizard'])
-        self.scissor = Gesture('scissors',['rock','scissors'])
+        self.scissor = Gesture('scissors',['rock','spock'])
         self.lizard = Gesture('lizard',['rock','scissors'])
         self.spock = Gesture('spock', ['paper','lizard'])
         self.gestures = (self.rock,self.paper,self.scissor,self.lizard,self.spock)
