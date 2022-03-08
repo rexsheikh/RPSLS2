@@ -8,7 +8,7 @@ from gestures import Gestures
 
 class Game():
     def __init__(self):
-        self.win_loss_table = [['draw','p1','p2','p2','p1'],['p2','draw','p1','p1','p2'],['p1','p2','draw','p2','p1'],['p1','p2','p1','draw','p2'],['p2','p1','p2','p1','draw']]
+        #self.win_loss_table = [['draw','p1','p2','p2','p1'],['p2','draw','p1','p1','p2'],['p1','p2','draw','p2','p1'],['p1','p2','p1','draw','p2'],['p2','p1','p2','p1','draw']]
         self.player1 = None
         self.player2 = None
         self.rock = Gesture('rock',['paper','spock'])
@@ -19,6 +19,10 @@ class Game():
         self.gestures = (self.rock,self.paper,self.scissor,self.lizard,self.spock)
         self.gestures_list = Gestures()
         self.gestures_list.gestures_list.extend(self.gestures)
+
+        self.player1 = Player()
+        self.player1.gestures = self.gestures_list
+        
 
     def run_game(self):
         self.display_welcome()
@@ -36,15 +40,6 @@ class Game():
             print('\n')
             time.sleep(1)
             print(f"Player one chose {self.player1.gestures[self.player1_choice]} and Player two chose {self.player2.gestures[self.player2_choice]} \n")
-            self.winner = self.win_loss_table[self.player2_choice][self.player1_choice]
-            if self.winner == 'p1':
-                self.player1.increment_score()
-                print('Player 1 scores!\n')
-            elif self.winner == 'p2':
-                self.player2.increment_score()
-                print('Player 2 scores!\n')
-            else:
-                print('draw!')
         self.display_winner()
         self.another_game()
 
