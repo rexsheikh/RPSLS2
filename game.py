@@ -3,12 +3,19 @@ from human import Human
 from ai import AI   
 import random
 import time
+from gesture import Gesture
 
 class Game():
     def __init__(self):
         self.win_loss_table = [['draw','p1','p2','p2','p1'],['p2','draw','p1','p1','p2'],['p1','p2','draw','p2','p1'],['p1','p2','p1','draw','p2'],['p2','p1','p2','p1','draw']]
         self.player1 = None
         self.player2 = None
+        self.rock = Gesture(['paper','spock'])
+        self.paper = Gesture(['scissors','lizard'])
+        self.scissor = Gesture(['rock','scissors'])
+        self.lizard = Gesture(['rock','scissors'])
+        self.spock = Gesture(['paper','lizard'])
+
 
     def run_game(self):
         self.display_welcome()
