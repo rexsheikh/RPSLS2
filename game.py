@@ -4,18 +4,21 @@ from ai import AI
 import random
 import time
 from gesture import Gesture
+from gestures import Gestures
 
 class Game():
     def __init__(self):
         self.win_loss_table = [['draw','p1','p2','p2','p1'],['p2','draw','p1','p1','p2'],['p1','p2','draw','p2','p1'],['p1','p2','p1','draw','p2'],['p2','p1','p2','p1','draw']]
         self.player1 = None
         self.player2 = None
-        self.rock = Gesture(['paper','spock'])
-        self.paper = Gesture(['scissors','lizard'])
-        self.scissor = Gesture(['rock','scissors'])
-        self.lizard = Gesture(['rock','scissors'])
-        self.spock = Gesture(['paper','lizard'])
-
+        self.rock = Gesture('rock',['paper','spock'])
+        self.paper = Gesture('paper',['scissors','lizard'])
+        self.scissor = Gesture('scissors',['rock','scissors'])
+        self.lizard = Gesture('lizard',['rock','scissors'])
+        self.spock = Gesture('spock', ['paper','lizard'])
+        self.gestures = (self.rock,self.paper,self.scissor,self.lizard,self.spock)
+        self.gestures_list = Gestures()
+        self.gestures_list.gestures_list.extend(self.gestures)
 
     def run_game(self):
         self.display_welcome()

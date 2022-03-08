@@ -4,4 +4,4 @@ from player import Player
 import random
 
 test = Game()
-test.run_game()
+print(len(test.gestures_list.gestures_list))
