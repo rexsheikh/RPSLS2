@@ -11,18 +11,16 @@ class Game():
         #self.win_loss_table = [['draw','p1','p2','p2','p1'],['p2','draw','p1','p1','p2'],['p1','p2','draw','p2','p1'],['p1','p2','p1','draw','p2'],['p2','p1','p2','p1','draw']]
         self.player1 = None
         self.player2 = None
-        self.rock = Gesture('rock',['paper','spock'])
-        self.paper = Gesture('paper',['scissors','lizard'])
-        self.scissor = Gesture('scissors',['rock','scissors'])
-        self.lizard = Gesture('lizard',['rock','scissors'])
-        self.spock = Gesture('spock', ['paper','lizard'])
-        self.gestures = (self.rock,self.paper,self.scissor,self.lizard,self.spock)
-        self.gestures_list = Gestures()
-        self.gestures_list.gestures_list.extend(self.gestures)
-
-        self.player1 = Player()
-        self.player1.gestures = self.gestures_list
-        
+        # self.rock = Gesture('rock',['paper','spock'])
+        # self.paper = Gesture('paper',['scissors','lizard'])
+        # self.scissor = Gesture('scissors',['rock','scissors'])
+        # self.lizard = Gesture('lizard',['rock','scissors'])
+        # self.spock = Gesture('spock', ['paper','lizard'])
+        # self.gestures = (self.rock,self.paper,self.scissor,self.lizard,self.spock)
+        # self.gestures_obj = Gestures()
+        # self.gestures_obj.gestures_list.extend(self.gestures)
+        # self.player = Player()
+        # self.player.gestures = self.gestures_obj.gestures_list
 
     def run_game(self):
         self.display_welcome()
@@ -39,7 +37,15 @@ class Game():
             self.player2_choice = self.player2.choose_gesture()
             print('\n')
             time.sleep(1)
-            print(f"Player one chose {self.player1.gestures[self.player1_choice]} and Player two chose {self.player2.gestures[self.player2_choice]} \n")
+            print(f"Player one chose {self.player1.gestures_list[self.player1_choice].name} and Player two chose {self.player2.gestures_list[self.player2_choice].name} \n")
+            if self.player2.gestures_list[self.player2_choice].name in self.player1.gestures_list[self.player1_choice].loss_list:
+                self.player2.increment_score()
+                print("player 2 scores!")
+            elif self.player1.gestures_list[self.player1_choice].name in self.player2.gestures[self.player2_choice].loss_list:
+                self.player1.increment_score()
+                print('player 1 scores! ')
+            else:
+                print('draw')
         self.display_winner()
         self.another_game()
 
